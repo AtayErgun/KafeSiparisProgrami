@@ -33,5 +33,7 @@ namespace KafeSiparisProgrami
             MessageBox.Show("AuthDomain=" + AuthDomain + "\n ApiKey=" + ApiKey);
         }
         
+
+        
     }
 }
