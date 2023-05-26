@@ -35,6 +35,7 @@ namespace KafeSiparisProgrami.LoginCFolder
             this.sifretxt = new System.Windows.Forms.TextBox();
             this.gostercheckBox = new System.Windows.Forms.CheckBox();
             this.Loginbtn = new System.Windows.Forms.Button();
+            this.login_Pb = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -95,10 +96,20 @@ namespace KafeSiparisProgrami.LoginCFolder
             this.Loginbtn.UseVisualStyleBackColor = true;
             this.Loginbtn.Click += new System.EventHandler(this.Loginbtn_Click);
             // 
+            // login_Pb
+            // 
+            this.login_Pb.Location = new System.Drawing.Point(131, 167);
+            this.login_Pb.Name = "login_Pb";
+            this.login_Pb.Size = new System.Drawing.Size(118, 28);
+            this.login_Pb.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.login_Pb.TabIndex = 5;
+            this.login_Pb.Visible = false;
+            // 
             // LoginC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.login_Pb);
             this.Controls.Add(this.Loginbtn);
             this.Controls.Add(this.gostercheckBox);
             this.Controls.Add(this.sifretxt);
@@ -106,7 +117,7 @@ namespace KafeSiparisProgrami.LoginCFolder
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "LoginC";
-            this.Size = new System.Drawing.Size(380, 168);
+            this.Size = new System.Drawing.Size(429, 228);
             this.Load += new System.EventHandler(this.LoginC_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,5 +132,6 @@ namespace KafeSiparisProgrami.LoginCFolder
         public System.Windows.Forms.TextBox emailtxt;
         public System.Windows.Forms.TextBox sifretxt;
         public System.Windows.Forms.Button Loginbtn;
+        public System.Windows.Forms.ProgressBar login_Pb;
     }
 }

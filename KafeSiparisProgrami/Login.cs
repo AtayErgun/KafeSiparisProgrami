@@ -36,9 +36,6 @@ namespace KafeSiparisProgrami
 
             this.loginc.Loginbtn.Click += Loginbtn_Click;
             this.createc.Createubtn.Click += Createubtn_Click;
-
-            
-
             var config = new FirebaseAuthConfig
             {
                 ApiKey = ApiKey,
@@ -53,17 +50,24 @@ namespace KafeSiparisProgrami
         private async void Loginbtn_Click(object sender, EventArgs e)
         {
             try {
-                var kullanici_kimligi = await client.SignInWithEmailAndPasswordAsync(this.loginc.emailtxt.Text.Trim(), this.loginc.sifretxt.Text.Trim());
-                MessageBox.Show(kullanici_kimligi.User.Uid);
+                loginc.Loginbtn.Enabled = false;
+                loginc.login_Pb.Visible = true;
+                UserCredential kullanici_kimligi = await client.SignInWithEmailAndPasswordAsync(this.loginc.emailtxt.Text.Trim(), this.loginc.sifretxt.Text.Trim());
+                this.Hide();
+                MainWindow nesne = new MainWindow(kullanici_kimligi);  
+                nesne.Show();
                  }
 
             catch(Exception exc)
             {
                 MessageBox.Show("Hata:"+exc.Message);
+                loginc.Loginbtn.Enabled = true;
+                loginc.login_Pb.Visible = false;
             }
             finally
             {
-                  
+                loginc.Loginbtn.Enabled = true;
+                loginc.login_Pb.Visible = false;
             }
         }
         private async void Createubtn_Click(object sender, EventArgs e)
@@ -71,7 +75,7 @@ namespace KafeSiparisProgrami
 
             try
             {
-                var kullanici_kimligi=await client.CreateUserWithEmailAndPasswordAsync(this.createc.emailtxt.Text.Trim(), this.createc.sifretxt.Text.Trim());
+               var kullanici_kimligi=await client.CreateUserWithEmailAndPasswordAsync(this.createc.emailtxt.Text.Trim(), this.createc.sifretxt.Text.Trim());
                 MessageBox.Show(kullanici_kimligi.User.Uid);
             }
 
