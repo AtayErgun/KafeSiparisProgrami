@@ -1,5 +1,6 @@
 ﻿using Firebase.Auth;
 using Firebase.Database;
+using Firebase.Database.Query;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,22 @@ namespace KafeSiparisProgrami
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+
+            Musteri must1 = new Musteri();
+            must1.Ad = "Ergün";
+            must1.Soyad = "Atay";
+
+            Musteri must2 = new Musteri();
+            must2.Ad = "Deniz";
+            must2.Soyad = "Ata";
+
+            await firebaseistemci.Child("Müşteriler").Child("12345").PutAsync(must1);
+            await firebaseistemci.Child("Müşteriler").Child("54321").PutAsync(must2);
 
         }
     }

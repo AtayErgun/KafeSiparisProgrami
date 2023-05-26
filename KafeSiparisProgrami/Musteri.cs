@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace KafeSiparisProgrami
 {
-    class Dinasour
+    public class Musteri
     {
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
     }
 }

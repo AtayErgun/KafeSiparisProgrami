@@ -202,6 +202,7 @@
     <Compile Include="Controls\CreateuserC.Designer.cs">
       <DependentUpon>CreateuserC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Musteri.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
