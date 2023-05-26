@@ -29,25 +29,47 @@ namespace KafeSiparisProgrami
         /// </summary>
         private void InitializeComponent()
         {
-            this.girisyapbtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Kullanıcıgrişbtn = new System.Windows.Forms.Button();
+            this.yenikullanıcıbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // girisyapbtn
+            // panel1
             // 
-            this.girisyapbtn.Location = new System.Drawing.Point(284, 171);
-            this.girisyapbtn.Name = "girisyapbtn";
-            this.girisyapbtn.Size = new System.Drawing.Size(119, 43);
-            this.girisyapbtn.TabIndex = 0;
-            this.girisyapbtn.Text = "Giriş Yap";
-            this.girisyapbtn.UseVisualStyleBackColor = true;
-            this.girisyapbtn.Click += new System.EventHandler(this.girisyapbtn_Click);
+            this.panel1.Location = new System.Drawing.Point(12, 55);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(394, 270);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // Kullanıcıgrişbtn
+            // 
+            this.Kullanıcıgrişbtn.Location = new System.Drawing.Point(12, 12);
+            this.Kullanıcıgrişbtn.Name = "Kullanıcıgrişbtn";
+            this.Kullanıcıgrişbtn.Size = new System.Drawing.Size(109, 37);
+            this.Kullanıcıgrişbtn.TabIndex = 0;
+            this.Kullanıcıgrişbtn.Text = "Kullanıcı Girişi";
+            this.Kullanıcıgrişbtn.UseVisualStyleBackColor = true;
+            this.Kullanıcıgrişbtn.Click += new System.EventHandler(this.Kullanıcıgrişbtn_Click);
+            // 
+            // yenikullanıcıbtn
+            // 
+            this.yenikullanıcıbtn.Location = new System.Drawing.Point(140, 12);
+            this.yenikullanıcıbtn.Name = "yenikullanıcıbtn";
+            this.yenikullanıcıbtn.Size = new System.Drawing.Size(104, 37);
+            this.yenikullanıcıbtn.TabIndex = 1;
+            this.yenikullanıcıbtn.Text = "Yeni Kullanıcı ";
+            this.yenikullanıcıbtn.UseVisualStyleBackColor = true;
+            this.yenikullanıcıbtn.Click += new System.EventHandler(this.yenikullanıcıbtn_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.girisyapbtn);
+            this.ClientSize = new System.Drawing.Size(435, 353);
+            this.Controls.Add(this.yenikullanıcıbtn);
+            this.Controls.Add(this.Kullanıcıgrişbtn);
+            this.Controls.Add(this.panel1);
             this.Name = "Login";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -57,7 +79,9 @@ namespace KafeSiparisProgrami
 
         #endregion
 
-        private System.Windows.Forms.Button girisyapbtn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button Kullanıcıgrişbtn;
+        private System.Windows.Forms.Button yenikullanıcıbtn;
     }
 }
 
