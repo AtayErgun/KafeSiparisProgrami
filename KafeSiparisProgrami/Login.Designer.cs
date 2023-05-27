@@ -71,6 +71,7 @@ namespace KafeSiparisProgrami
             this.Controls.Add(this.Kullanıcıgrişbtn);
             this.Controls.Add(this.panel1);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

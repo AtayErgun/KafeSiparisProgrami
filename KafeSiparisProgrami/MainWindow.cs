@@ -29,7 +29,7 @@ namespace KafeSiparisProgrami
                 {
                     AuthTokenAsyncFactory = () => kullanici_kimligi.User.GetIdTokenAsync()
                 });
-                MessageBox.Show("Firebase Realtime Database için istemci oluşturuldu.." , "Başarılı!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // MessageBox.Show("Firebase Realtime Database için istemci oluşturuldu.." , "Başarılı!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception exc)
@@ -58,6 +58,11 @@ namespace KafeSiparisProgrami
 
             await firebaseistemci.Child("Müşteriler").Child("12345").PutAsync(must1);
             await firebaseistemci.Child("Müşteriler").Child("54321").PutAsync(must2);
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }
