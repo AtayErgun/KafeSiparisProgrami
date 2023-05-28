@@ -29,18 +29,19 @@ namespace KafeSiparisProgrami
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.musteriler_dtgrvw = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.status_Pb = new System.Windows.Forms.ProgressBar();
             this.status_lbl = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.status_Pb = new System.Windows.Forms.ProgressBar();
+            ((System.ComponentModel.ISupportInitialize)(this.musteriler_dtgrvw)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(300, 12);
+            this.button1.Location = new System.Drawing.Point(300, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(158, 36);
             this.button1.TabIndex = 0;
@@ -48,18 +49,18 @@ namespace KafeSiparisProgrami
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridView1
+            // musteriler_dtgrvw
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.musteriler_dtgrvw.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(813, 402);
-            this.dataGridView1.TabIndex = 1;
+            this.musteriler_dtgrvw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.musteriler_dtgrvw.Location = new System.Drawing.Point(0, 45);
+            this.musteriler_dtgrvw.Name = "musteriler_dtgrvw";
+            this.musteriler_dtgrvw.RowHeadersWidth = 51;
+            this.musteriler_dtgrvw.RowTemplate.Height = 24;
+            this.musteriler_dtgrvw.Size = new System.Drawing.Size(808, 365);
+            this.musteriler_dtgrvw.TabIndex = 1;
             // 
             // panel1
             // 
@@ -70,15 +71,6 @@ namespace KafeSiparisProgrami
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(808, 44);
             this.panel1.TabIndex = 2;
-            // 
-            // status_Pb
-            // 
-            this.status_Pb.Location = new System.Drawing.Point(696, 3);
-            this.status_Pb.Name = "status_Pb";
-            this.status_Pb.Size = new System.Drawing.Size(109, 38);
-            this.status_Pb.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.status_Pb.TabIndex = 0;
-            this.status_Pb.Visible = false;
             // 
             // status_lbl
             // 
@@ -94,18 +86,28 @@ namespace KafeSiparisProgrami
             this.status_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.status_lbl.Click += new System.EventHandler(this.label1_Click);
             // 
+            // status_Pb
+            // 
+            this.status_Pb.Location = new System.Drawing.Point(696, 0);
+            this.status_Pb.Name = "status_Pb";
+            this.status_Pb.Size = new System.Drawing.Size(109, 44);
+            this.status_Pb.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.status_Pb.TabIndex = 0;
+            this.status_Pb.Visible = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 450);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.musteriler_dtgrvw);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "Sipariş Programı";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musteriler_dtgrvw)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -114,7 +116,7 @@ namespace KafeSiparisProgrami
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView musteriler_dtgrvw;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ProgressBar status_Pb;
         private System.Windows.Forms.Label status_lbl;

@@ -29,8 +29,7 @@ namespace KafeSiparisProgrami
                 {
                     AuthTokenAsyncFactory = () => kullanici_kimligi.User.GetIdTokenAsync()
                 });
-               // MessageBox.Show("Firebase Realtime Database için istemci oluşturuldu.." , "Başarılı!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                Musteri_Listele();
             }
             catch (Exception exc)
             {
@@ -60,6 +59,29 @@ namespace KafeSiparisProgrami
             await firebaseistemci.Child("Müşteriler").Child("54321").PutAsync(must2);
 
         }
+
+        private async void Musteri_Listele()
+        {
+            status_lbl.Text = "Müşteri Listesi sunucudan çekiliyor";
+            status_Pb.Visible = true;
+            IReadOnlyCollection<FirebaseObject<Musteri>> Müşteriler = await firebaseistemci.Child("Müşteriler").OrderByKey().OnceAsync<Musteri>();
+
+            DataTable Musteriler_table = new DataTable();
+            Musteriler_table.Columns.Add("M_No", typeof(string));
+            Musteriler_table.Columns.Add("Ad", typeof(string));
+            Musteriler_table.Columns.Add("Soyad", typeof(string));
+
+
+            foreach (FirebaseObject < Musteri > Musteri in Müşteriler)
+            {
+                Musteriler_table.Rows.Add(Musteri.Key, Musteri.Object.Ad, Musteri.Object.Soyad);
+            }
+
+            musteriler_dtgrvw.DataSource = Musteriler_table;
+            status_lbl.Text = "";
+            status_Pb.Visible = false;
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
