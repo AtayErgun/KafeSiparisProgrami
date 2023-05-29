@@ -72,6 +72,7 @@ namespace KafeSiparisProgrami
             Musteriler_table.Columns.Add("Soyad", typeof(string));
 
 
+
             foreach (FirebaseObject < Musteri > Musteri in Müşteriler)
             {
                 Musteriler_table.Rows.Add(Musteri.Key, Musteri.Object.Ad, Musteri.Object.Soyad);
