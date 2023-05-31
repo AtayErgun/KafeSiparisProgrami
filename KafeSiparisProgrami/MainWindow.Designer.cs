@@ -51,16 +51,20 @@ namespace KafeSiparisProgrami
             // 
             // musteriler_dtgrvw
             // 
+            this.musteriler_dtgrvw.AllowUserToAddRows = false;
+            this.musteriler_dtgrvw.AllowUserToDeleteRows = false;
             this.musteriler_dtgrvw.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.musteriler_dtgrvw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.musteriler_dtgrvw.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.musteriler_dtgrvw.Location = new System.Drawing.Point(0, 45);
             this.musteriler_dtgrvw.Name = "musteriler_dtgrvw";
             this.musteriler_dtgrvw.RowHeadersWidth = 51;
             this.musteriler_dtgrvw.RowTemplate.Height = 24;
             this.musteriler_dtgrvw.Size = new System.Drawing.Size(808, 365);
             this.musteriler_dtgrvw.TabIndex = 1;
+            this.musteriler_dtgrvw.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.musteriler_dtgrvw_CellMouseClick);
             // 
             // panel1
             // 

@@ -46,17 +46,21 @@ namespace KafeSiparisProgrami
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci);
+            mekle.ShowDialog();
 
-            Musteri must1 = new Musteri();
-            must1.Ad = "Ergün";
-            must1.Soyad = "Atay";
+            Musteri_Listele();
 
-            Musteri must2 = new Musteri();
-            must2.Ad = "Deniz";
-            must2.Soyad = "Ata";
+            //Musteri must1 = new Musteri();
+            //must1.Ad = "Ergün";
+            //must1.Soyad = "Atay";
 
-            await firebaseistemci.Child("Müşteriler").Child("12345").PutAsync(must1);
-            await firebaseistemci.Child("Müşteriler").Child("54321").PutAsync(must2);
+            //Musteri must2 = new Musteri();
+            //must2.Ad = "Deniz";
+            //must2.Soyad = "Ata";
+
+            //await firebaseistemci.Child("Müşteriler").Child("12345").PutAsync(must1);
+            //await firebaseistemci.Child("Müşteriler").Child("54321").PutAsync(must2);
 
         }
 
@@ -67,7 +71,7 @@ namespace KafeSiparisProgrami
             IReadOnlyCollection<FirebaseObject<Musteri>> Müşteriler = await firebaseistemci.Child("Müşteriler").OrderByKey().OnceAsync<Musteri>();
 
             DataTable Musteriler_table = new DataTable();
-            Musteriler_table.Columns.Add("M_No", typeof(string));
+            Musteriler_table.Columns.Add("Numara", typeof(string));
             Musteriler_table.Columns.Add("Ad", typeof(string));
             Musteriler_table.Columns.Add("Soyad", typeof(string));
 
@@ -87,6 +91,21 @@ namespace KafeSiparisProgrami
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void musteriler_dtgrvw_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int selected = e.RowIndex;
+            // MessageBox.Show(musteriler_dtgrvw.Rows[selected].Cells[0].Value.ToString());
+
+            Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci);
+            mekle.Text = "Müşteri Bilgilerini Güncellle";
+            mekle.numaratxt.Text= musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
+            mekle.adtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Ad"].Value.ToString();
+            mekle.soyadtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Soyad"].Value.ToString();
+            mekle.musterieklebtn.Text = "Güncelle";
+            mekle.ShowDialog();
+            Musteri_Listele();
         }
     }
 }
