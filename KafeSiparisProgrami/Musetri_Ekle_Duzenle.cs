@@ -16,7 +16,7 @@ namespace KafeSiparisProgrami
     {
         FirebaseClient istemci;
 
-        public Musetri_Ekle_Duzenle(FirebaseClient client)
+        public Musetri_Ekle_Duzenle(FirebaseClient istemcik)
         {
             InitializeComponent();
             this.istemci = istemci;

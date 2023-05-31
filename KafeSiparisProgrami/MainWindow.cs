@@ -103,9 +103,13 @@ namespace KafeSiparisProgrami
             mekle.numaratxt.Text= musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
             mekle.adtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Ad"].Value.ToString();
             mekle.soyadtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Soyad"].Value.ToString();
+
             mekle.musterieklebtn.Text = "Güncelle";
+
             mekle.ShowDialog();
+         
             Musteri_Listele();
+
         }
     }
 }
