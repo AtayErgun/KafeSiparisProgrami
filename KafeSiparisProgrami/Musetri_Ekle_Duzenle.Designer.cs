@@ -36,12 +36,16 @@ namespace KafeSiparisProgrami
             this.label3 = new System.Windows.Forms.Label();
             this.soyadtxt = new System.Windows.Forms.TextBox();
             this.musterieklebtn = new System.Windows.Forms.Button();
+            this.resim_pb = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.resim_pb)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 37);
+            this.label1.Location = new System.Drawing.Point(31, 325);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 0;
@@ -49,7 +53,7 @@ namespace KafeSiparisProgrami
             // 
             // numaratxt
             // 
-            this.numaratxt.Location = new System.Drawing.Point(146, 37);
+            this.numaratxt.Location = new System.Drawing.Point(146, 325);
             this.numaratxt.Name = "numaratxt";
             this.numaratxt.Size = new System.Drawing.Size(158, 22);
             this.numaratxt.TabIndex = 1;
@@ -58,7 +62,7 @@ namespace KafeSiparisProgrami
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 90);
+            this.label2.Location = new System.Drawing.Point(44, 378);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 17);
             this.label2.TabIndex = 0;
@@ -66,7 +70,7 @@ namespace KafeSiparisProgrami
             // 
             // adtxt
             // 
-            this.adtxt.Location = new System.Drawing.Point(146, 90);
+            this.adtxt.Location = new System.Drawing.Point(146, 378);
             this.adtxt.Name = "adtxt";
             this.adtxt.Size = new System.Drawing.Size(158, 22);
             this.adtxt.TabIndex = 2;
@@ -74,7 +78,7 @@ namespace KafeSiparisProgrami
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 140);
+            this.label3.Location = new System.Drawing.Point(31, 428);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 17);
             this.label3.TabIndex = 0;
@@ -82,26 +86,55 @@ namespace KafeSiparisProgrami
             // 
             // soyadtxt
             // 
-            this.soyadtxt.Location = new System.Drawing.Point(146, 137);
+            this.soyadtxt.Location = new System.Drawing.Point(146, 425);
             this.soyadtxt.Name = "soyadtxt";
             this.soyadtxt.Size = new System.Drawing.Size(158, 22);
             this.soyadtxt.TabIndex = 3;
             // 
             // musterieklebtn
             // 
-            this.musterieklebtn.Location = new System.Drawing.Point(259, 187);
+            this.musterieklebtn.Location = new System.Drawing.Point(112, 468);
             this.musterieklebtn.Name = "musterieklebtn";
-            this.musterieklebtn.Size = new System.Drawing.Size(111, 37);
+            this.musterieklebtn.Size = new System.Drawing.Size(238, 42);
             this.musterieklebtn.TabIndex = 4;
             this.musterieklebtn.Text = "Musteri Ekle";
             this.musterieklebtn.UseVisualStyleBackColor = true;
             this.musterieklebtn.Click += new System.EventHandler(this.musterieklebtn_Click);
             // 
+            // resim_pb
+            // 
+            this.resim_pb.Location = new System.Drawing.Point(88, 12);
+            this.resim_pb.Name = "resim_pb";
+            this.resim_pb.Size = new System.Drawing.Size(368, 285);
+            this.resim_pb.TabIndex = 5;
+            this.resim_pb.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(400, 265);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 32);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Seç";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Resim";
+            // 
             // Musetri_Ekle_Duzenle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 225);
+            this.ClientSize = new System.Drawing.Size(468, 517);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.resim_pb);
             this.Controls.Add(this.musterieklebtn);
             this.Controls.Add(this.soyadtxt);
             this.Controls.Add(this.label3);
@@ -110,7 +143,8 @@ namespace KafeSiparisProgrami
             this.Controls.Add(this.numaratxt);
             this.Controls.Add(this.label1);
             this.Name = "Musetri_Ekle_Duzenle";
-            this.Text = "Musetri_Ekle";
+            this.Text = "Musteri_Ekle";
+            ((System.ComponentModel.ISupportInitialize)(this.resim_pb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +159,8 @@ namespace KafeSiparisProgrami
         public System.Windows.Forms.TextBox adtxt;
         public System.Windows.Forms.TextBox soyadtxt;
         public System.Windows.Forms.Button musterieklebtn;
+        private System.Windows.Forms.PictureBox resim_pb;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
     }
 }
