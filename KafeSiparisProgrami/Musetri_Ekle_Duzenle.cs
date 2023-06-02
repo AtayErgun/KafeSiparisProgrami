@@ -47,5 +47,15 @@ namespace KafeSiparisProgrami
                 this.Close();
             }
         }
+
+        private void resimsecbtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog resimsec = new OpenFileDialog();
+            if (resimsec.ShowDialog() == DialogResult.OK)
+            {
+                Image resim = Image.FromFile(resimsec.FileName);
+                resim_pb.Image = resim;
+            }
+        }
     }
 }

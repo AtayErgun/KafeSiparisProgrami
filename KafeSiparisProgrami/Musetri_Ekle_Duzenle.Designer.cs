@@ -37,7 +37,7 @@ namespace KafeSiparisProgrami
             this.soyadtxt = new System.Windows.Forms.TextBox();
             this.musterieklebtn = new System.Windows.Forms.Button();
             this.resim_pb = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.resimsecbtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.resim_pb)).BeginInit();
             this.SuspendLayout();
@@ -106,17 +106,19 @@ namespace KafeSiparisProgrami
             this.resim_pb.Location = new System.Drawing.Point(88, 12);
             this.resim_pb.Name = "resim_pb";
             this.resim_pb.Size = new System.Drawing.Size(368, 285);
+            this.resim_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.resim_pb.TabIndex = 5;
             this.resim_pb.TabStop = false;
             // 
-            // button1
+            // resimsecbtn
             // 
-            this.button1.Location = new System.Drawing.Point(400, 265);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 32);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Seç";
-            this.button1.UseVisualStyleBackColor = true;
+            this.resimsecbtn.Location = new System.Drawing.Point(400, 265);
+            this.resimsecbtn.Name = "resimsecbtn";
+            this.resimsecbtn.Size = new System.Drawing.Size(56, 32);
+            this.resimsecbtn.TabIndex = 6;
+            this.resimsecbtn.Text = "Seç";
+            this.resimsecbtn.UseVisualStyleBackColor = true;
+            this.resimsecbtn.Click += new System.EventHandler(this.resimsecbtn_Click);
             // 
             // label4
             // 
@@ -133,7 +135,7 @@ namespace KafeSiparisProgrami
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 517);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.resimsecbtn);
             this.Controls.Add(this.resim_pb);
             this.Controls.Add(this.musterieklebtn);
             this.Controls.Add(this.soyadtxt);
@@ -142,6 +144,7 @@ namespace KafeSiparisProgrami
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numaratxt);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Musetri_Ekle_Duzenle";
             this.Text = "Musteri_Ekle";
             ((System.ComponentModel.ISupportInitialize)(this.resim_pb)).EndInit();
@@ -160,7 +163,7 @@ namespace KafeSiparisProgrami
         public System.Windows.Forms.TextBox soyadtxt;
         public System.Windows.Forms.Button musterieklebtn;
         private System.Windows.Forms.PictureBox resim_pb;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button resimsecbtn;
         private System.Windows.Forms.Label label4;
     }
 }
