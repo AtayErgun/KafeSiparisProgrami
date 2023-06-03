@@ -16,17 +16,12 @@ namespace KafeSiparisProgrami
         static void Main()
         {
 
-            XmlDocument config = new XmlDocument();
-            config.Load("config.xml");
-
-            string AuthDomain = config.DocumentElement.SelectSingleNode("/FireBase/AuthDomain").InnerText;
-            string ApiKey = config.DocumentElement.SelectSingleNode("/FireBase/ApiKey").InnerText;
-           
+            Config ayarlar = new Config();
             
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login(AuthDomain,ApiKey));
+            Application.Run(new Login(ayarlar));
         }
     }
 }

@@ -23,11 +23,13 @@ namespace KafeSiparisProgrami
         private CreateuserC createc;
         private int createubtn_Click;
         private FirebaseAuthClient client;
-        public Login(string AuthDomain,string ApiKey)
+        private Config ayarlar;
+        public Login(Config ayarlar)
         {
             InitializeComponent();
-            this.AuthDomain = AuthDomain;
-            this.ApiKey = ApiKey;
+            this.AuthDomain = ayarlar.AuthDomain;
+            this.ApiKey = ayarlar.ApiKey;
+            this.ayarlar = ayarlar;
             createc = new CreateuserC();
             loginc = new LoginC();
 
