@@ -39,6 +39,7 @@ namespace KafeSiparisProgrami
             this.resim_pb = new System.Windows.Forms.PictureBox();
             this.resimsecbtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.musteripbr = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.resim_pb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,9 +94,9 @@ namespace KafeSiparisProgrami
             // 
             // musterieklebtn
             // 
-            this.musterieklebtn.Location = new System.Drawing.Point(112, 468);
+            this.musterieklebtn.Location = new System.Drawing.Point(318, 472);
             this.musterieklebtn.Name = "musterieklebtn";
-            this.musterieklebtn.Size = new System.Drawing.Size(238, 42);
+            this.musterieklebtn.Size = new System.Drawing.Size(127, 42);
             this.musterieklebtn.TabIndex = 4;
             this.musterieklebtn.Text = "Musteri Ekle";
             this.musterieklebtn.UseVisualStyleBackColor = true;
@@ -129,11 +130,20 @@ namespace KafeSiparisProgrami
             this.label4.TabIndex = 7;
             this.label4.Text = "Resim";
             // 
+            // musteripbr
+            // 
+            this.musteripbr.Location = new System.Drawing.Point(125, 472);
+            this.musteripbr.Name = "musteripbr";
+            this.musteripbr.Size = new System.Drawing.Size(120, 42);
+            this.musteripbr.TabIndex = 8;
+            this.musteripbr.Visible = false;
+            // 
             // Musetri_Ekle_Duzenle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 517);
+            this.Controls.Add(this.musteripbr);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.resimsecbtn);
             this.Controls.Add(this.resim_pb);
@@ -165,5 +175,6 @@ namespace KafeSiparisProgrami
         private System.Windows.Forms.PictureBox resim_pb;
         private System.Windows.Forms.Button resimsecbtn;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ProgressBar musteripbr;
     }
 }

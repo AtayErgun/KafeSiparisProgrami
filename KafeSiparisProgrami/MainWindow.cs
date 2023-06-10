@@ -46,7 +46,7 @@ namespace KafeSiparisProgrami
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci);
+            Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci,kullanici_kimligi);
             mekle.ShowDialog();
 
             Musteri_Listele();
