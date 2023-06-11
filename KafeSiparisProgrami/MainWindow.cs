@@ -1,6 +1,7 @@
 ﻿using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
+using Firebase.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +18,12 @@ namespace KafeSiparisProgrami
     {
         private UserCredential kullanici_kimligi;
         private FirebaseClient firebaseistemci;
+        private Config ayarlar;
+        FirebaseStorage firebase_depolama;
         public MainWindow(UserCredential kullanici_kimligi)
         {
             InitializeComponent();
+            ayarlar = new Config();
             this.kullanici_kimligi = kullanici_kimligi;
             this.Text = this.Text + " |Kullanici: " + kullanici_kimligi.User.Info.Email;
             try
@@ -29,6 +33,12 @@ namespace KafeSiparisProgrami
                 {
                     AuthTokenAsyncFactory = () => kullanici_kimligi.User.GetIdTokenAsync()
                 });
+                FirebaseStorage firebase_depolama = new FirebaseStorage(ayarlar.FireStorageDomain,
+                       new FirebaseStorageOptions
+                       {
+                           AuthTokenAsyncFactory = () => kullanici_kimligi.User.GetIdTokenAsync(),
+                           ThrowOnCancel = true,
+                       });
                 Musteri_Listele();
             }
             catch (Exception exc)
@@ -93,9 +103,9 @@ namespace KafeSiparisProgrami
 
         }
 
-        private void musteriler_dtgrvw_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private async void musteriler_dtgrvw_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int selected = e.RowIndex;
+           /* int selected = e.RowIndex;
             // MessageBox.Show(musteriler_dtgrvw.Rows[selected].Cells[0].Value.ToString());
 
             Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci,kullanici_kimligi);
@@ -106,9 +116,23 @@ namespace KafeSiparisProgrami
 
             mekle.musterieklebtn.Text = "Güncelle";
 
+            
+            try
+            {
+                string numara= musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
+                string Müşteri = await firebaseistemci.Child("Müşteriler").Child(numara).Child("Resim").OrderByKey().OnceSingleAsync<string>();
+            }
+            catch(Exception exc)
+            {
+
+            }
+            finally
+            {
+
+            }
+
             mekle.ShowDialog();
-         
-            Musteri_Listele();
+            Musteri_Listele();*/
 
         }
     }

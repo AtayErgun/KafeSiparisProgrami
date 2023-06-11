@@ -29,14 +29,19 @@ namespace KafeSiparisProgrami
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.button1 = new System.Windows.Forms.Button();
             this.musteriler_dtgrvw = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.status_lbl = new System.Windows.Forms.Label();
             this.status_Pb = new System.Windows.Forms.ProgressBar();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.musteriler_dtgrvw)).BeginInit();
             this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -57,6 +62,7 @@ namespace KafeSiparisProgrami
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.musteriler_dtgrvw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.musteriler_dtgrvw.ContextMenuStrip = this.contextMenuStrip1;
             this.musteriler_dtgrvw.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.musteriler_dtgrvw.Location = new System.Drawing.Point(0, 45);
             this.musteriler_dtgrvw.Name = "musteriler_dtgrvw";
@@ -99,6 +105,27 @@ namespace KafeSiparisProgrami
             this.status_Pb.TabIndex = 0;
             this.status_Pb.Visible = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.düzenleToolStripMenuItem,
+            this.silToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 52);
+            // 
+            // düzenleToolStripMenuItem
+            // 
+            this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.düzenleToolStripMenuItem.Text = "Düzenle";
+            // 
+            // silToolStripMenuItem
+            // 
+            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.silToolStripMenuItem.Text = "Sil";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -113,6 +140,7 @@ namespace KafeSiparisProgrami
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.musteriler_dtgrvw)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -124,5 +152,8 @@ namespace KafeSiparisProgrami
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ProgressBar status_Pb;
         private System.Windows.Forms.Label status_lbl;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem düzenleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
     }
 }
