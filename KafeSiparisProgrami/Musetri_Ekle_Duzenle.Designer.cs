@@ -46,7 +46,7 @@ namespace KafeSiparisProgrami
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 325);
+            this.label1.Location = new System.Drawing.Point(31, 329);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 0;
@@ -54,7 +54,7 @@ namespace KafeSiparisProgrami
             // 
             // numaratxt
             // 
-            this.numaratxt.Location = new System.Drawing.Point(146, 325);
+            this.numaratxt.Location = new System.Drawing.Point(146, 329);
             this.numaratxt.Name = "numaratxt";
             this.numaratxt.Size = new System.Drawing.Size(158, 22);
             this.numaratxt.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace KafeSiparisProgrami
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 378);
+            this.label2.Location = new System.Drawing.Point(44, 382);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 17);
             this.label2.TabIndex = 0;
@@ -71,7 +71,7 @@ namespace KafeSiparisProgrami
             // 
             // adtxt
             // 
-            this.adtxt.Location = new System.Drawing.Point(146, 378);
+            this.adtxt.Location = new System.Drawing.Point(146, 382);
             this.adtxt.Name = "adtxt";
             this.adtxt.Size = new System.Drawing.Size(158, 22);
             this.adtxt.TabIndex = 2;
@@ -79,7 +79,7 @@ namespace KafeSiparisProgrami
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 428);
+            this.label3.Location = new System.Drawing.Point(31, 432);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 17);
             this.label3.TabIndex = 0;
@@ -87,14 +87,14 @@ namespace KafeSiparisProgrami
             // 
             // soyadtxt
             // 
-            this.soyadtxt.Location = new System.Drawing.Point(146, 425);
+            this.soyadtxt.Location = new System.Drawing.Point(146, 429);
             this.soyadtxt.Name = "soyadtxt";
             this.soyadtxt.Size = new System.Drawing.Size(158, 22);
             this.soyadtxt.TabIndex = 3;
             // 
             // musterieklebtn
             // 
-            this.musterieklebtn.Location = new System.Drawing.Point(318, 472);
+            this.musterieklebtn.Location = new System.Drawing.Point(318, 476);
             this.musterieklebtn.Name = "musterieklebtn";
             this.musterieklebtn.Size = new System.Drawing.Size(127, 42);
             this.musterieklebtn.TabIndex = 4;
@@ -104,16 +104,16 @@ namespace KafeSiparisProgrami
             // 
             // resim_pb
             // 
-            this.resim_pb.Location = new System.Drawing.Point(88, 12);
+            this.resim_pb.Location = new System.Drawing.Point(54, 4);
             this.resim_pb.Name = "resim_pb";
-            this.resim_pb.Size = new System.Drawing.Size(368, 285);
+            this.resim_pb.Size = new System.Drawing.Size(535, 315);
             this.resim_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.resim_pb.TabIndex = 5;
             this.resim_pb.TabStop = false;
             // 
             // resimsecbtn
             // 
-            this.resimsecbtn.Location = new System.Drawing.Point(400, 265);
+            this.resimsecbtn.Location = new System.Drawing.Point(533, 287);
             this.resimsecbtn.Name = "resimsecbtn";
             this.resimsecbtn.Size = new System.Drawing.Size(56, 32);
             this.resimsecbtn.TabIndex = 6;
@@ -124,15 +124,16 @@ namespace KafeSiparisProgrami
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 31);
+            this.label4.Location = new System.Drawing.Point(1, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "Resim";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // musteripbr
             // 
-            this.musteripbr.Location = new System.Drawing.Point(125, 472);
+            this.musteripbr.Location = new System.Drawing.Point(122, 476);
             this.musteripbr.Name = "musteripbr";
             this.musteripbr.Size = new System.Drawing.Size(120, 42);
             this.musteripbr.TabIndex = 8;
@@ -142,7 +143,7 @@ namespace KafeSiparisProgrami
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 517);
+            this.ClientSize = new System.Drawing.Size(650, 523);
             this.Controls.Add(this.musteripbr);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.resimsecbtn);

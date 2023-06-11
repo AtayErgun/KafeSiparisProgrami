@@ -44,6 +44,8 @@ namespace KafeSiparisProgrami
                 yeni_must.Numara = numaratxt.Text;
                 yeni_must.Ad = adtxt.Text;
                 yeni_must.Soyad = soyadtxt.Text;
+                yeni_must.Resim = string.Format("profil_resimleri/{0}/profil.png",yeni_must.Numara);
+
 
                 if (resim_url != "")
                 {
@@ -54,7 +56,7 @@ namespace KafeSiparisProgrami
                             ThrowOnCancel = true,
                         });
                     FileStream stream = File.Open(resim_url, FileMode.Open);
-                    FirebaseStorageTask gonder=depolama.Child("profil_resimleri").Child(yeni_must.Numara).PutAsync(stream);
+                    FirebaseStorageTask gonder=depolama.Child("profil_resimleri").Child(yeni_must.Numara).Child("profil.png").PutAsync(stream);
                     gonder.Progress.ProgressChanged += (s, evnt) => musteripbr.Value = evnt.Percentage;
                 }
                 await istemci.Child("Müşteriler").Child(yeni_must.Numara).PutAsync(yeni_must);
@@ -75,10 +77,17 @@ namespace KafeSiparisProgrami
             OpenFileDialog resimsec = new OpenFileDialog();
             if (resimsec.ShowDialog() == DialogResult.OK)
             {
-                Image resim = Image.FromFile(resimsec.FileName);
+                FileStream stream = File.Open(resimsec.FileName, FileMode.Open);
+                Image resim = (Image)Image.FromStream(stream).Clone();
                 resim_pb.Image = resim;
+                stream.Close();
                 resim_url = resimsec.FileName;
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

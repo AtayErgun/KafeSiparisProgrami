@@ -98,7 +98,7 @@ namespace KafeSiparisProgrami
             int selected = e.RowIndex;
             // MessageBox.Show(musteriler_dtgrvw.Rows[selected].Cells[0].Value.ToString());
 
-            Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci);
+            Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci,kullanici_kimligi);
             mekle.Text = "Müşteri Bilgilerini Güncellle";
             mekle.numaratxt.Text= musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
             mekle.adtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Ad"].Value.ToString();
