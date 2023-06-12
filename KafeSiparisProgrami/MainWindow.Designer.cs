@@ -33,15 +33,15 @@ namespace KafeSiparisProgrami
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.button1 = new System.Windows.Forms.Button();
             this.musteriler_dtgrvw = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.status_lbl = new System.Windows.Forms.Label();
-            this.status_Pb = new System.Windows.Forms.ProgressBar();
             this.dtgrid_cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.düzenle_tsmenü = new System.Windows.Forms.ToolStripMenuItem();
             this.sil_tsmenü = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.status_lbl = new System.Windows.Forms.Label();
+            this.status_Pb = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.musteriler_dtgrvw)).BeginInit();
-            this.panel1.SuspendLayout();
             this.dtgrid_cms.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -70,7 +70,29 @@ namespace KafeSiparisProgrami
             this.musteriler_dtgrvw.RowTemplate.Height = 24;
             this.musteriler_dtgrvw.Size = new System.Drawing.Size(808, 365);
             this.musteriler_dtgrvw.TabIndex = 1;
-            this.musteriler_dtgrvw.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.musteriler_dtgrvw_CellMouseClick);
+            // 
+            // dtgrid_cms
+            // 
+            this.dtgrid_cms.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.dtgrid_cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.düzenle_tsmenü,
+            this.sil_tsmenü});
+            this.dtgrid_cms.Name = "dtgrid_cms";
+            this.dtgrid_cms.Size = new System.Drawing.Size(133, 52);
+            this.dtgrid_cms.Opening += new System.ComponentModel.CancelEventHandler(this.dtgrid_cms_Opening);
+            // 
+            // düzenle_tsmenü
+            // 
+            this.düzenle_tsmenü.Name = "düzenle_tsmenü";
+            this.düzenle_tsmenü.Size = new System.Drawing.Size(132, 24);
+            this.düzenle_tsmenü.Text = "Düzenle";
+            this.düzenle_tsmenü.Click += new System.EventHandler(this.düzenle_tsmenü_Click);
+            // 
+            // sil_tsmenü
+            // 
+            this.sil_tsmenü.Name = "sil_tsmenü";
+            this.sil_tsmenü.Size = new System.Drawing.Size(132, 24);
+            this.sil_tsmenü.Text = "Sil";
             // 
             // panel1
             // 
@@ -105,27 +127,6 @@ namespace KafeSiparisProgrami
             this.status_Pb.TabIndex = 0;
             this.status_Pb.Visible = false;
             // 
-            // dtgrid_cms
-            // 
-            this.dtgrid_cms.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.dtgrid_cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.düzenle_tsmenü,
-            this.sil_tsmenü});
-            this.dtgrid_cms.Name = "dtgrid_cms";
-            this.dtgrid_cms.Size = new System.Drawing.Size(133, 52);
-            // 
-            // düzenle_tsmenü
-            // 
-            this.düzenle_tsmenü.Name = "düzenle_tsmenü";
-            this.düzenle_tsmenü.Size = new System.Drawing.Size(132, 24);
-            this.düzenle_tsmenü.Text = "Düzenle";
-            // 
-            // sil_tsmenü
-            // 
-            this.sil_tsmenü.Name = "sil_tsmenü";
-            this.sil_tsmenü.Size = new System.Drawing.Size(132, 24);
-            this.sil_tsmenü.Text = "Sil";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -139,8 +140,8 @@ namespace KafeSiparisProgrami
             this.Text = "Sipariş Programı";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.musteriler_dtgrvw)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.dtgrid_cms.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

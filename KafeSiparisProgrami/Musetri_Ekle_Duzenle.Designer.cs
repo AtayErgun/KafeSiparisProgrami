@@ -173,9 +173,9 @@ namespace KafeSiparisProgrami
         public System.Windows.Forms.TextBox adtxt;
         public System.Windows.Forms.TextBox soyadtxt;
         public System.Windows.Forms.Button musterieklebtn;
-        private System.Windows.Forms.PictureBox resim_pb;
         private System.Windows.Forms.Button resimsecbtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ProgressBar musteripbr;
+        public System.Windows.Forms.PictureBox resim_pb;
     }
 }

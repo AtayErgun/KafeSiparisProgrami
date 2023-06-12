@@ -7,7 +7,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,12 +30,12 @@ namespace KafeSiparisProgrami
             this.kullanici_kimligi = kullanici_kimligi;
             this.Text = this.Text + " |Kullanici: " + kullanici_kimligi.User.Info.Email;
             try
-            { 
-            firebaseistemci = new FirebaseClient("https://kafesiparisprogrami-default-rtdb.firebaseio.com/",
-                new FirebaseOptions
-                {
-                    AuthTokenAsyncFactory = () => kullanici_kimligi.User.GetIdTokenAsync()
-                });
+            {
+                firebaseistemci = new FirebaseClient("https://kafesiparisprogrami-default-rtdb.firebaseio.com/",
+                    new FirebaseOptions
+                    {
+                        AuthTokenAsyncFactory = () => kullanici_kimligi.User.GetIdTokenAsync()
+                    });
                 FirebaseStorage firebase_depolama = new FirebaseStorage(ayarlar.FireStorageDomain,
                        new FirebaseStorageOptions
                        {
@@ -57,7 +59,7 @@ namespace KafeSiparisProgrami
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci,kullanici_kimligi);
+            Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci, kullanici_kimligi);
             mekle.ShowDialog();
 
             Musteri_Listele();
@@ -88,7 +90,7 @@ namespace KafeSiparisProgrami
 
 
 
-            foreach (FirebaseObject < Musteri > Musteri in Müşteriler)
+            foreach (FirebaseObject<Musteri> Musteri in Müşteriler)
             {
                 Musteriler_table.Rows.Add(Musteri.Key, Musteri.Object.Ad, Musteri.Object.Soyad);
             }
@@ -104,62 +106,85 @@ namespace KafeSiparisProgrami
 
         }
 
-        private  void musteriler_dtgrvw_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+
+        private void dtgrid_cms_Opening(object sender, CancelEventArgs e)
         {
-            if(e.Button==MouseButtons.Right)
+            int x = dtgrid_cms.Bounds.Location.X - this.Location.X - musteriler_dtgrvw.Location.X - 8;
+            int y = dtgrid_cms.Bounds.Location.Y - this.Location.Y - musteriler_dtgrvw.Location.Y - 32;
+            secili_id = musteriler_dtgrvw.HitTest(x, y).RowIndex;
+
+            musteriler_dtgrvw.ClearSelection();
+            musteriler_dtgrvw.Rows[secili_id].Selected = true;
+        }
+
+        private async void düzenle_tsmenü_Click(object sender, EventArgs e)
+        {
+            status_Pb.Visible = true;
+            musteriler_dtgrvw.Enabled = false;
+
+
+            if (secili_id != 1)
             {
-                secili_id = e.RowIndex;
-                
+                int selected = secili_id;
+                // MessageBox.Show(musteriler_dtgrvw.Rows[selected].Cells[0].Value.ToString());
+                string numara = musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
+                string ad = musteriler_dtgrvw.Rows[selected].Cells["Ad"].Value.ToString();
+                string soyad = musteriler_dtgrvw.Rows[selected].Cells["Soyad"].Value.ToString();
+
+                Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci, kullanici_kimligi);
+                mekle.Text = "Müşteri Bilgilerini Güncellle";
+                mekle.numaratxt.Text = numara;
+                mekle.adtxt.Text = ad;
+                mekle.soyadtxt.Text = soyad;
+                mekle.musterieklebtn.Text = "Güncelle";
+
+                try
+                {
+                    string resim_url = await firebase_depolama.Child("profil_resimleri").Child(numara).Child("profil.png").GetDownloadUrlAsync();
+
+                    WebClient istemci = new WebClient();
+                    Stream raw_dosya = istemci.OpenRead(resim_url);
+                    Bitmap resim = new Bitmap(raw_dosya);
+
+                    mekle.resim_pb.Image = resim;
+
+                    raw_dosya.Flush();
+                    raw_dosya.Close();
+                    istemci.Dispose();
+                }
+                catch (Exception exc)
+                {
+
+                }
+
+                status_Pb.Visible = false;
+                mekle.ShowDialog();
+                Musteri_Listele();
             }
-            /* int selected = e.RowIndex;
-             // MessageBox.Show(musteriler_dtgrvw.Rows[selected].Cells[0].Value.ToString());
+            musteriler_dtgrvw.Enabled = true;
+            status_Pb.Visible = false;
 
-             Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci,kullanici_kimligi);
-             mekle.Text = "Müşteri Bilgilerini Güncellle";
-             mekle.numaratxt.Text= musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
-             mekle.adtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Ad"].Value.ToString();
-             mekle.soyadtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Soyad"].Value.ToString();
+       
+            //    if (secili_id != 1)
+            //        {
+            //            int selected = secili_id;
+            //    // MessageBox.Show(musteriler_dtgrvw.Rows[selected].Cells[0].Value.ToString());
 
-             mekle.musterieklebtn.Text = "Güncelle";
+            //    Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci, kullanici_kimligi);
+            //    mekle.Text = "Müşteri Bilgilerini Güncellle";
+            //            mekle.numaratxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
+            //            mekle.adtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Ad"].Value.ToString();
+            //            mekle.soyadtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Soyad"].Value.ToString();
+
+            //            mekle.musterieklebtn.Text = "Güncelle";
 
 
-             try
-             {
-                 string numara= musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
-                 string Müşteri = await firebaseistemci.Child("Müşteriler").Child(numara).Child("Resim").OrderByKey().OnceSingleAsync<string>();
-             }
-             catch(Exception exc)
-             {
 
-             }
-             finally
-             {
 
-             }
-
-             mekle.ShowDialog();
-             Musteri_Listele();*/
+            //            mekle.ShowDialog();
+            //            Musteri_Listele();
+            //}
 
         }
-    //    if (secili_id != 1)
-    //        {
-    //            int selected = secili_id;
-    //    // MessageBox.Show(musteriler_dtgrvw.Rows[selected].Cells[0].Value.ToString());
-
-    //    Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci, kullanici_kimligi);
-    //    mekle.Text = "Müşteri Bilgilerini Güncellle";
-    //            mekle.numaratxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
-    //            mekle.adtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Ad"].Value.ToString();
-    //            mekle.soyadtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Soyad"].Value.ToString();
-
-    //            mekle.musterieklebtn.Text = "Güncelle";
-
-
-                
-
-    //            mekle.ShowDialog();
-    //            Musteri_Listele();
-    //}
-    
-    }
+    } 
 }
