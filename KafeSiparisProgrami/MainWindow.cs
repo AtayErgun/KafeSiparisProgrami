@@ -23,6 +23,8 @@ namespace KafeSiparisProgrami
         private Config ayarlar;
         FirebaseStorage firebase_depolama;
         private int secili_id = -1;
+        private object firebase_istemci;
+
         public MainWindow(UserCredential kullanici_kimligi)
         {
             InitializeComponent();
@@ -164,27 +166,49 @@ namespace KafeSiparisProgrami
             musteriler_dtgrvw.Enabled = true;
             status_Pb.Visible = false;
 
-       
-            //    if (secili_id != 1)
-            //        {
-            //            int selected = secili_id;
-            //    // MessageBox.Show(musteriler_dtgrvw.Rows[selected].Cells[0].Value.ToString());
+        }
 
-            //    Musetri_Ekle_Duzenle mekle = new Musetri_Ekle_Duzenle(firebaseistemci, kullanici_kimligi);
-            //    mekle.Text = "Müşteri Bilgilerini Güncellle";
-            //            mekle.numaratxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
-            //            mekle.adtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Ad"].Value.ToString();
-            //            mekle.soyadtxt.Text = musteriler_dtgrvw.Rows[selected].Cells["Soyad"].Value.ToString();
+        private async void sil_tsmenü_Click(object sender, EventArgs e)
+        {
+            status_Pb.Visible = true;
+            if (secili_id != 1)
+            {
+                int selected = secili_id;
+               
+                string numara = musteriler_dtgrvw.Rows[selected].Cells["Numara"].Value.ToString();
+                string ad = musteriler_dtgrvw.Rows[selected].Cells["Ad"].Value.ToString();
+                string soyad = musteriler_dtgrvw.Rows[selected].Cells["Soyad"].Value.ToString();
 
-            //            mekle.musterieklebtn.Text = "Güncelle";
+                string mesaj = String.Format("{0} numaralı {1} {2} isimli müşteriyi silmek üzeresiniz.Silme işlemini onaylıyor musunuz? ", numara, ad, soyad);
+
+                if(MessageBox.Show(mesaj,"Dikkat!",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)==DialogResult.Yes)
+                {
+
+                    try
+                    {
+                        string resim_url = await firebase_depolama.Child("profil_resimleri").Child(numara).Child("profil.png").GetDownloadUrlAsync();
 
 
+                        await firebase_depolama.Child("profil_resimleri").Child(numara).Child("profil.png").DeleteAsync();
+                    }
+                    catch (Exception exc) { }
 
+                    await firebaseistemci.Child("Müşteriler").Child(numara).DeleteAsync();
 
-            //            mekle.ShowDialog();
-            //            Musteri_Listele();
-            //}
+                    string mesaj2 = String.Format("{0} numaralı {1} {2} isimli müşteri sistemden silinmiştir.",numara,ad,soyad);
 
+                    Musteri_Listele();
+                    status_Pb.Visible = false;
+                    MessageBox.Show(mesaj2, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show("Silme işlemi iptal edildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            status_Pb.Visible = false;
         }
     } 
 }

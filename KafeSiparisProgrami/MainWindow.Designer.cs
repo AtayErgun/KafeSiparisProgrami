@@ -78,21 +78,22 @@ namespace KafeSiparisProgrami
             this.düzenle_tsmenü,
             this.sil_tsmenü});
             this.dtgrid_cms.Name = "dtgrid_cms";
-            this.dtgrid_cms.Size = new System.Drawing.Size(133, 52);
+            this.dtgrid_cms.Size = new System.Drawing.Size(211, 80);
             this.dtgrid_cms.Opening += new System.ComponentModel.CancelEventHandler(this.dtgrid_cms_Opening);
             // 
             // düzenle_tsmenü
             // 
             this.düzenle_tsmenü.Name = "düzenle_tsmenü";
-            this.düzenle_tsmenü.Size = new System.Drawing.Size(132, 24);
+            this.düzenle_tsmenü.Size = new System.Drawing.Size(210, 24);
             this.düzenle_tsmenü.Text = "Düzenle";
             this.düzenle_tsmenü.Click += new System.EventHandler(this.düzenle_tsmenü_Click);
             // 
             // sil_tsmenü
             // 
             this.sil_tsmenü.Name = "sil_tsmenü";
-            this.sil_tsmenü.Size = new System.Drawing.Size(132, 24);
+            this.sil_tsmenü.Size = new System.Drawing.Size(210, 24);
             this.sil_tsmenü.Text = "Sil";
+            this.sil_tsmenü.Click += new System.EventHandler(this.sil_tsmenü_Click);
             // 
             // panel1
             // 

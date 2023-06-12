@@ -158,6 +158,7 @@ namespace KafeSiparisProgrami
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Musetri_Ekle_Duzenle";
             this.Text = "Musteri_Ekle";
+            this.Load += new System.EventHandler(this.Musetri_Ekle_Duzenle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.resim_pb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

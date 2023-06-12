@@ -89,5 +89,10 @@ namespace KafeSiparisProgrami
         {
 
         }
+
+        private void Musetri_Ekle_Duzenle_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
